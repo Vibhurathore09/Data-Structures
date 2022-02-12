@@ -1,3 +1,5 @@
+package LinkedList.SLL;
+
 public class Main extends SinglyLinkedList{
     public static void main(String[] args) {
         SinglyLinkedList l = new SinglyLinkedList();
