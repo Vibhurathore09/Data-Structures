@@ -50,12 +50,18 @@ public class StackUsingList
     {
         int n=0;
         if(head == null)
-            System.out.println("Underflow");
+            System.out.println("Stack in Empty");
         else
         {
             n = head.data;
             head = head.next;
         }
         return n;
+    }
+    public int peek()
+    {
+        if(head == null)
+            System.out.println("Stack in Empty");
+        return head.data;
     }
 }
