@@ -44,11 +44,12 @@ public class StackUsingList
             head = n;
             n.next = temp;
         }
-        System.out.println(x+"data pushed to stack");
+        System.out.println(x+" data pushed to stack");
     }
     public int pop()
     {
         int n=0;
+        System.out.print("Poped element is -> ");
         if(head == null)
             System.out.println("Stack in Empty");
         else
@@ -56,12 +57,30 @@ public class StackUsingList
             n = head.data;
             head = head.next;
         }
+
         return n;
     }
     public int peek()
     {
         if(head == null)
             System.out.println("Stack in Empty");
+        System.out.print("Peek element -> ");
         return head.data;
+    }
+    public void printStack()
+    {
+        if(head==null)
+            System.out.println("Stack is Empty");
+        else
+        {
+            StackNode n = head;
+            System.out.println("Printing Stack");
+            while(n!=null)
+            {
+                System.out.print(n.data+" ");
+                n = n.next;
+            }
+            System.out.println();
+        }
     }
 }
