@@ -47,7 +47,7 @@ public class Stack
     void print()
     {
         for (int i = tos; i > -1; i--) {
-            System.out.print(" " + stack[i]);
+            System.out.print( stack[i]+" " );
         }
         System.out.println();
     }
