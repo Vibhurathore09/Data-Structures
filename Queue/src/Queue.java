@@ -9,43 +9,43 @@ public class Queue
             front = rear = -1;
             arr = new int[size];
         }
-        boolean isFull(queue q)
+        boolean isFull()
         {
-            if(rear == q.arr.length-1)
+            if(rear == arr.length-1)
             {
                 return true;
             }
             return false;
         }
-        boolean isEmpty(queue q)
+        boolean isEmpty()
         {
             if(front ==-1|| rear == -1)
                 return true;
             return false;
         }
-        public void Enqueue(int val,queue q)
+        public void Enqueue(int val)
         {
-            if(isFull(q))
+            if(isFull())
             {
                 System.out.println("Overflow");
                 return;
             }
-            else if(isEmpty(q))
+            else if(isEmpty())
             {
                 front = rear= 0;
-                q.arr[rear] = val;
+                arr[rear] = val;
             }
             else
             {
                 rear++;
-                q.arr[rear] = val;
+                arr[rear] = val;
             }
             //System.out.println("Rear "+rear);
             System.out.println("Queued to queue "+val);
         }
         public void dequeue(queue q)
         {
-            if(q.isEmpty(q))
+            if(q.isEmpty())
             {
                 System.out.println("Underflow");
                 return;
