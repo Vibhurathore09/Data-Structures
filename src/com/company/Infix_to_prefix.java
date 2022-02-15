@@ -1,15 +1,16 @@
+package com.company;
+
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Infix_to_prefix
-{
+public class Infix_to_prefix {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
-        //String s1 = convert(s);
+
         System.out.println(convert(s));
 
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+
     }
     public static boolean isOperator(char c)
     {
@@ -25,7 +26,7 @@ public class Infix_to_prefix
     }
     public static String convert(String s)
     {
-        Stack<String> stack = new Stack<String>();
+        java.util.Stack<String> stack = new Stack<String>();
         int l=s.length();
         for(int i=l-1;i>=0;i--)
         {
@@ -43,5 +44,4 @@ public class Infix_to_prefix
         }
         return stack.pop();
     }
-
 }
