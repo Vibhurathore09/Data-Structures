@@ -1,0 +1,92 @@
+public class DLL
+{
+    Node head;
+    class Node{
+        int data;
+        Node next;
+        Node prev;
+        Node(int data)
+        {
+            this.data = data;
+        }
+    }
+    DLL()
+    {
+        head = null;
+    }
+    public void insert(int x )
+    {
+        Node n = new Node(x);
+        n.next = null;
+        n.prev = null;
+        if(head == null)
+        {
+            head = n;
+        }
+        else
+        {
+            Node i=head;
+            while (i.next!=null)
+            {
+                i=i.next;
+            }
+            i.next=n;
+            n.prev=i;
+
+        }
+        System.out.println("Element added -> "+x);
+    }
+    public void delete()
+    {
+        if(head == null)
+        {
+            System.out.println("Empty");
+            return;
+        }
+        else
+        {
+            if(head.next == null)
+            {
+                head = null;
+            }
+            else
+            {
+                head = head.next;
+            }
+            System.out.println("Deleted... ");
+        }
+    }
+    public  void traverse()
+    {
+        //forward
+        Node temp = head;
+        Node last =null;
+        System.out.println("Printing Forward ");
+        while(temp!=null)
+        {
+            System.out.print(temp.data+" ");
+            last = temp;
+            temp = temp.next;
+        }
+        System.out.println();
+        //backward
+        System.out.println("Printing Backward ");
+        while(last!=null)
+        {
+            System.out.print(last.data+" ");
+            last = last.prev;
+        }
+        System.out.println();
+
+    }
+
+    public static void main(String[] args) {
+        DLL l = new DLL();
+        l.insert(1);
+        l.insert(2);
+        l.insert(3);
+        l.traverse();
+        l.delete();
+        l.traverse();
+    }
+}
