@@ -1,0 +1,98 @@
+public class Deque
+{
+    Node front , rear;
+   static  class Node
+   {
+       int data;
+       Node next;
+       Node (int data)
+        {
+            next = null;
+            this.data = data;
+        }
+   }
+   public boolean isEmpty()
+   {
+       if(rear ==null ||front ==  null)
+           return true;
+       return false;
+
+   }
+   public void Enqueue_front(int val)
+   {
+       Node n = new Node(val);
+       if(isEmpty())
+       {
+           rear = front = n;
+       }
+       else
+       {
+           n.next = front;
+           front = n;
+       }
+   }
+   public void Enqueue_rear(int val)
+   {
+       Node n = new Node(val);
+       if(isEmpty())
+       {
+           rear = front = n;
+       }
+       else
+       {
+           rear.next = n;
+           rear = n;
+       }
+   }
+   public void Dequeue_front()
+   {
+       if(isEmpty())
+       {
+           System.out.println("Empty");
+           return;
+       }
+       else if(front==rear) {
+           System.out.println(front.data);
+           front = rear = null;
+       }
+       else
+       {
+           System.out.println(front.data);
+           front = front.next;
+       }
+   }
+   public void Dequeue_rear()
+   {
+       if(isEmpty())
+       {
+           System.out.println("Empty");
+           return;
+       }
+       else
+       {
+           Node n = front;
+           while(n.next.next!=null)
+           {
+               n = n.next;
+           }
+           System.out.println(front.data);
+           n.next = null;
+           rear = n;
+       }
+
+   }
+
+    public static void main(String[] args) {
+        Deque obj=new Deque();
+        obj.Dequeue_rear();
+        obj.Enqueue_front(10);
+        obj.Enqueue_rear(20);
+        obj.Enqueue_rear(30);
+        obj.Enqueue_front(40);
+        obj.Dequeue_rear();
+        obj.Dequeue_rear();
+        obj.Dequeue_front();
+        obj.Dequeue_front();
+        obj.Dequeue_front();
+    }
+}
