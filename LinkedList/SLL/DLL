@@ -1,22 +1,24 @@
 public class DLL
 {
-    Node head;
-    class Node{
+    Node head ;
+    class Node
+    {
         int data;
         Node next;
         Node prev;
         Node(int data)
         {
             this.data = data;
+
         }
     }
     DLL()
     {
         head = null;
     }
-    public void insert(int x )
+    public void insert(int val)
     {
-        Node n = new Node(x);
+        Node n = new Node(val);
         n.next = null;
         n.prev = null;
         if(head == null)
@@ -25,35 +27,35 @@ public class DLL
         }
         else
         {
-            Node i=head;
-            while (i.next!=null)
+            Node temp = head;
+            while(temp.next!=null)
             {
-                i=i.next;
+                temp = temp.next;
             }
-            i.next=n;
-            n.prev=i;
-
+            temp.next = n;
+            n.prev  = temp;
         }
-        System.out.println("Element added -> "+x);
     }
     public void delete()
     {
         if(head == null)
         {
-            System.out.println("Empty");
-            return;
+            System.out.println("Underflow");
+        }
+        else if(head.next == null)
+        {
+            head = null;
         }
         else
         {
-            if(head.next == null)
+            Node temp = head;
+            while(temp.next.next != null)
             {
-                head = null;
+                temp = temp.next;
             }
-            else
-            {
-                head = head.next;
-            }
-            System.out.println("Deleted... ");
+            temp.next.prev = null;
+            temp.next = null;
+
         }
     }
     public  void traverse()
@@ -79,7 +81,6 @@ public class DLL
         System.out.println();
 
     }
-
     public static void main(String[] args) {
         DLL l = new DLL();
         l.insert(1);
